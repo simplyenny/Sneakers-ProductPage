@@ -1,9 +1,36 @@
-.App {
-  width: 100vw;
-  height: 100vh;
-}
-
 body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: hidden;
+}
+.App {
+  max-width: 100rem;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+/*add cart button*/
+.button{
+  margin-top: 0.8rem;
+}
+.remove, .add{
+  background-color: hsl(220, 14%, 75%);
+  color: hsl(26, 100%, 55%);
+  padding: 0.5rem;
+  width: 3rem;
+  border-radius: 10px;
+  border: 0;
+}
+.cart{
+  background-color: hsl(26, 100%, 55%);
+  color: white;
+  background-repeat: no-repeat;
+  background-position: 1px;
+  padding: 0.5rem;
+  margin: 0.3rem;
+  border: 0;
+  width: 10rem;
+  border-radius: 10px;
 }

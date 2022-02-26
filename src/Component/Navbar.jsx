@@ -18,30 +18,31 @@ import { hover } from "@testing-library/user-event/dist/hover";
 const useStyles = makeStyles((theme) =>({
   nav_bar:{
     display: "flex",
-    flexDirection: "column",    
     background: "white",
-    width: "95rem",
     borderBottom: "2px solid gainsboro",
     marginTop: "0",
     padding: "15px",
+   
 
-    "@media (max-width:780px)": {},
+    "@media (max-width:780px)": {
+      flexDirection: "left",
+      display: "block",
+    },
   },
   logo:{
-      
+      display: "block",
     "@media (max-width:780px)":{
+      display: "block",
       height: 15,
-      justifyContent: "center",
-      alignItems: "center",
-      position: "relative",
+      justifyContent: "left",
+      alignItems: "left",
     },
-  /*Linksnav:{
-    &:hover {
+  },
+  Linksnav:{
+    "&:hover": {
       textDecoration:"underline",
-      color: "orange",
-    }
-  }*/ 
-  
+      Color: "#ffa500",
+    },
   },
 
  
@@ -51,16 +52,18 @@ const useStyles = makeStyles((theme) =>({
 const NavigationBar=()=> {
     const classes = useStyles();
     return(
-        <Navbar bg="" fixed="top" expand="lg" className={classes.nav_bar}>
+        <Navbar collapseOnSelect bg="" fixed="top" expand="lg" className={classes.nav_bar}>
         <Container fluid>
          
-          <Navbar.Brand href="/">
+          <Navbar.Brand href="/" className="order-lg-0 mx-auto order-1">
              <img src={Logo} alt="" className={classes.logo}/>
           </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" className="order-lg-1 order-0"/>
 
-         <Navbar.Collapse id="navbarScroll">
-         {/*<Nav 
-         className="me-auto">*/}
+         <Navbar.Collapse id="responsive-navbar-nav">
+         {/*<Nav className="m-2 my-lg-0"
+              style={{ maxHeight: '100px'}}
+    navbarScroll>*/}
             <Nav.Link 
              href="#action2"
              className={classes.Linksnav}
@@ -72,7 +75,7 @@ const NavigationBar=()=> {
            
            <Nav.Link 
              href="/men"
-             className="my-2 my-lg-0"
+             className={classes.Linksnav} 
              style={{color: "hsl(219, 9%, 45%)"}}>
              <Typography variant ="inherit" noWrap>
                Men
@@ -81,7 +84,7 @@ const NavigationBar=()=> {
            
           <Nav.Link 
            href="/women"
-           className="my-2 my-lg-0"
+           className={classes.Linksnav}
            style={{color: "hsl(219, 9%, 45%)"}}>
              <Typography variant ="inherit" noWrap>
                Women
@@ -90,7 +93,7 @@ const NavigationBar=()=> {
            
                <Nav.Link 
            href="/about"
-           className="my-2 my-lg-0"
+           className={classes.Linksnav} 
            style={{color: "hsl(219, 9%, 45%)"}}>
              <Typography variant ="inherit" noWrap>
                About
@@ -99,7 +102,7 @@ const NavigationBar=()=> {
 
                <Nav.Link 
                  href="/contact"
-                 className="my-2 my-lg-0"
+                 className={classes.Linksnav} 
                  style={{color: "hsl(219, 9%, 45%)"}}>
                  <Typography variant ="inherit" noWrap>
                    Contact
@@ -110,7 +113,8 @@ const NavigationBar=()=> {
            {/*</Nav>*/}
        </Navbar.Collapse>
        </Container>
-</Navbar>
+      </Navbar>
+      
 
     );
 }

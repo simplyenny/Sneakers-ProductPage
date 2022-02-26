@@ -18,13 +18,28 @@ const useStyles = makeStyles((theme)=>({
         gridAutoRows: "100px",   
         margin: "13rem", 
         alignItems: "center",
+        "@media (max-width:780px)":{
+            display: "inline-block",
+            margin: "5rem", 
+            textAlign: "left",
+            
+
+        },
     },
     Shoe1:{
         /*display: "inline-block",*/
-        justifySelf:"center",
+        justifySelf:"left",
     },
     Shoe2:{
         justifySelf:"end",
+        padding: "1rem",
+
+        "@media (max-width:780px)":{
+            fontSize: "16px",
+            fontWeight: "300",
+            padding:".5rem",
+            lineHeight:".5rem",
+        },
     },
   
 
@@ -34,16 +49,16 @@ const ProductPage=()=>{
     const classes = useStyles();
     const [visible, setVisible] = useState(false);
     const [count, setCount] = useState(0);
-    /*const [price, setPrice] = useState();*/
+    const [price, setPrice] = useState();
 
-    const price = 125;
+    /*const price = 125;*/
 
     return(
        <React.Fragment>
            <div className={classes.sneaker}>
                <div className={classes.Shoe1}>  
-               <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-                   <Col className="gutter-row" span={8}>
+               <Row gutter={{ xs: 12, sm: 20, md: 24, lg: 32 }}>
+                   <Col className="gutter-row" span={18}  >
                    <Image
                            preview={{ visible: false }}
                            width={265}
@@ -52,9 +67,9 @@ const ProductPage=()=>{
                            src={Sneakers}
                            onClick={() => setVisible(true)}
                          />
-                         <div style={{ display: 'flex' }}>
+                         <div style={{ display: 'flex', padding:'10px', margin:'15px'}}>
                            <Image.PreviewGroup preview={{ visible, onVisibleChange: vis => setVisible(vis) }}>
-                             <Image src={Sneakers1} />
+                             <Image src={Sneakers1} style={{margin:'15px'}}/>
                              <Image src={Sneakers2} />
                              <Image src={Sneakers3} />
                              <Image src={Sneakers4} />
@@ -67,21 +82,21 @@ const ProductPage=()=>{
                         
                 </div>
                <div className={classes.Shoe2}>
-                   <h5
+                   <h2
                      style={{color: "hsl(26, 100%, 55%)", 
-                          fontWeight: "400", 
+                          fontWeight: "600", 
                           fontStyle:"Bold"}}>
                           SNEAKER COMPANY
-                   </h5>
+                   </h2>
                    <Typography
                    variant="h1" style={{fontWeight: "700", fontSize: "24px", lineHeight: "1.5em"}}>
                        Fall Limited Edition <br />
                        Sneakers
                    </Typography>
-                   <small style={{lineHeight: "1.5em"}}>These low profile sneakers are your perfect casual wear
-                       <br />companion. Featuring a durable rubber outer sole, they'll
-                       <br />withstand everything the whether as to offer.
-                   </small><br />
+                   <h2 style={{lineSpacing: "1.5em", fontWeight:"400"}}>These low profile sneakers are your perfect casual wear
+                       companion. Featuring a durable rubber outer sole, they'll
+                       withstand everything the whether as to offer.
+                   </h2>
                    <small><strong>$125.00</strong></small><br />
                    <div className="button">
                      
@@ -90,16 +105,15 @@ const ProductPage=()=>{
                      {count} 
                      <button onClick={() => setCount(count + 1)} className="add" >+</button>
                     </p>
-                     
-                     <p>
-                     <button className="cart"
-                      onClick={()=> setCount(count*125)}
-                     >
-                         <img src="
+                        <button onClick="ShowAndHide()">
+                         <h2>Price is ${count*125}</h2> 
+                    
+                          <img src="
                           ./assets/images/icon-cart.svg);" alt=""/>
                           Add to Cart
-                        </button>
-                        </p>
+                          </button>
+                         
+                        
                    </div>
 
                </div>

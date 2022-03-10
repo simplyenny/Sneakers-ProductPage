@@ -4,6 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import "../App";
+import "../App.css";
+import Basket from './Basket';
 import { display } from "@mui/system";
 import { Typography } from "@mui/material";
 import { Avatar } from "@mui/material";
@@ -108,6 +110,7 @@ const NavigationBar=()=> {
                    Contact
                  </Typography>
                </Nav.Link>
+               <Basket />
                <Avatar alt="dp" src={imageAvatar} className="ms-auto mx-2" />
              
            {/*</Nav>*/}

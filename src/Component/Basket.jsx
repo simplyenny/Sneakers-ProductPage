@@ -17,7 +17,7 @@ const menu = (
     Your Cart is empty.
     </Menu.Item>
     <Menu.Item key="3" icon={<ShoppingCartOutlined />}>
-      3rd menu item
+      
     </Menu.Item>
   </Menu>
 );

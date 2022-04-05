@@ -66,7 +66,7 @@ const ProductPage=()=>{
     const [visible, setVisible] = useState(false);
     const [count, setCount] = useState(1);
     const [price, setPrice] = useState();
-    const Count = this.state.Count;
+    /*const Count = this.state.Count;*/
 
     
     const menu = (
@@ -154,12 +154,12 @@ const ProductPage=()=>{
 
            </div>
            
-           <Space wrap>
+          {/* <Space wrap>
            <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<ShoppingCartOutlined />}>
            
          </Dropdown.Button>
        
-       </Space>
+    </Space>*/}
        </React.Fragment>
     );
 }
